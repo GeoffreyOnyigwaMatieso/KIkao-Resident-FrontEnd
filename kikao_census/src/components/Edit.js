@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { patchSomeData } from "./Functions";
+import { patchSomeData,fetchUrl } from "./KikaoFunctions";
 
-const EditStudentRecord = () => {
+
+const Edit = () => {
     const navigate = useNavigate()
     const location=useLocation()
     const {elem}=location.state
@@ -22,7 +23,7 @@ const EditStudentRecord = () => {
   function handleSubmit(e){
     e.preventDefault()
     // console.log(JSON.stringify(formdata))
-    patchSomeData(url,formData,elem)
+    patchSomeData(fetchUrl,formData,elem)
       .then(data=>navigate("/"))
       .catch(console.error)
   }

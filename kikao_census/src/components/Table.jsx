@@ -1,6 +1,7 @@
 import Table from 'react-bootstrap/Table';
 
-function Table() {
+function Table({details}) {
+    
   return (
     <Table striped bordered hover variant="dark">
       <thead>

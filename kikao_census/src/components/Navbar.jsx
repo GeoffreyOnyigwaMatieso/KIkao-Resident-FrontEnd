@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {NavLink} from "react-router-dom"
 import {FaTh,FaBars,FaShoppingBag,FaUserAlt} from "react-icons/fa"
 
-const NavBar = ({children}) => {
+const Navbar = ({children}) => {
   const[isOpen,setIsOpen]=useState(false)
   const toggle=()=>setIsOpen(!isOpen)
 
@@ -64,4 +64,4 @@ const NavBar = ({children}) => {
   );
 };
 
-export default NavBar;
+export default Navbar;
