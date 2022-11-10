@@ -54,4 +54,4 @@ const EditStudentRecord = () => {
     
   );
 };
-export default EditStudentRecord;
+export default Edit;
