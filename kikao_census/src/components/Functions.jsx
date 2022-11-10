@@ -1,25 +1,16 @@
-import React from "react";
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 
-
-function Functions() {
-
-const[fetchData,setFetchData]=useState([])
     //Abstract fetch 
 
     function fetchData(url){
-
+     let result;
         useEffect(()=>{
-        fetch(url)
+        result =fetch(url)
         .then (response=>response.json())
-        .then ((data)=>setFetchData(data))
-        .catch(console.error)
+       return result;
         },[])
+        
 
     }
 
-
-    return ( <React.Fragment> </React.Fragment>);
-}
-
-export {fetchData }default Functions;
+ export {fetchData};
