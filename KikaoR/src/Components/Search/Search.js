@@ -5,7 +5,7 @@ export const Search = () => {
     <div className="ui large fluid icon input">
       <input
         type="text"
-        placeholder="Search your Favourite Character"
+        placeholder="Search your For Land?"
         onChange={() => console.log("Searching...")}
       />
       <i className="circular search link icon"></i>

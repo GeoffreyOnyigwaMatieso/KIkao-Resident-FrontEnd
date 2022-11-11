@@ -34,13 +34,12 @@ function AddCharacterForm({charaterForm}) {
     <div className="ui segment fs-4 fw-bold mb-4">
     <form className="ui form" onSubmit = {handleSubmit}>
       <div className="inline fields">
-        <input type="text" name="name" value = {name} onChange ={(e) =>setName(e.target.value)}/>
-        <input type="text" name="status" placeholder="status" value = {status} onChange={(e)=>setStatus(e.target.value)} />
-        <input type="text" name="LastKnownLocation" placeholder="LastKnownLocation" value = {LastKnownLocation} onChange={(e) => setLastKnownLocation(e.target.value)}/> 
-        <input type="text" name="Firstseenin" placeholder="Firstseenin"  value = {Firstseenin} onChange={(e) => setFirstseenin(e.target.value)}/>
+        <input type="text" name="name" placeholder="Land" value = {name} onChange ={(e) =>setName(e.target.value)}/>
+        <input type="text" name="status" placeholder="Locations" value = {status} onChange={(e)=>setStatus(e.target.value)} />
+        <input type="text" name="LastKnownLocation" placeholder="Size" value = {LastKnownLocation} onChange={(e) => setLastKnownLocation(e.target.value)}/> 
       </div>
       <button type = "submit" className="ui button">
-        Add Character
+        Add Land
       </button>
     </form>
   </div>
