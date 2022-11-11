@@ -7,14 +7,13 @@ passing down a prop called item as an argument
 
 function  Character({item}){
 
-    const {name,status,LastKnownLocation,Firstseenin} = item
+    const {land,location,size,} = item
 
   return (
     <tr>
-      <td>{name}</td>
-      <td>{status}</td>
-      <td>{LastKnownLocation}</td>
-      <td>{Firstseenin}</td>
+      <td>{land}</td>
+      <td>{location}</td>
+      <td>{size}</td>
     </tr>
   )
 }
