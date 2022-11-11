@@ -15,7 +15,7 @@ import AddCharacterForm from "../AddCharacterForm/AddCharacterForm";
 
     useEffect(() =>{
         const lookup = () =>{
-          fetch(`http://localhost:8001/charactersprofile?q=${search}`)
+          fetch(`http://localhost:9292/land?q=${search}`)    
           .then(resp => resp.json())
           .then(data => setCharacters(data))
         };
