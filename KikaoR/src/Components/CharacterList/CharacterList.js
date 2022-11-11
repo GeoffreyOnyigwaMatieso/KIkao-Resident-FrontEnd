@@ -1,7 +1,7 @@
 import React from 'react'
 import  Character from '../Characters/Character'
 
-// This component Displays the Character in form of a list 
+// This component Displays the Lands in form of a list 
 
 /*
 map the data coming from the Character in the table
@@ -19,16 +19,13 @@ hold the mapped data in a characterList variable
       <tbody>
         <tr>
           <th>
-            <h3 className="ui center aligned header">name</h3>
+            <h3 className="ui center aligned header">Land</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">status</h3>
+            <h3 className="ui center aligned header">Location</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">LastKnownLocation</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Firstseenin</h3>
+            <h3 className="ui center aligned header">Size</h3>
           </th>
         </tr>
         {characterList}
