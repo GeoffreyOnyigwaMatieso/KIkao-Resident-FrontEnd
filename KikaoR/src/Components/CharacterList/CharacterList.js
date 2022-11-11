@@ -4,8 +4,8 @@ import  Character from '../Characters/Character'
 // This component Displays the Lands in form of a list 
 
 /*
-map the data coming from the Character in the table
-hold the mapped data in a characterList variable 
+map the data coming from the Land in the table
+hold the mapped data in a characterList variable ss
 */
 
  function CharacterList({Characters}) {
@@ -19,7 +19,7 @@ hold the mapped data in a characterList variable
       <tbody>
         <tr>
           <th>
-            <h3 className="ui center aligned header">Land</h3>
+            <h3 className="ui center aligned header">LandUse</h3>
           </th>
           <th>
             <h3 className="ui center aligned header">Location</h3>
