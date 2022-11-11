@@ -40,6 +40,7 @@
 // export default NavBar
 
 import { useState } from "react";
+import { NavLink } from 'react-router-dom'
 
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
@@ -96,16 +97,19 @@ export default function NavBar() {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">Home</a>
+                                <NavLink to="/">
+                                    Home
+                                </NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">Blog</a>
+                               <NavLink to="/data">
+                                    Data
+                                </NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">About US</a>
-                            </li>
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">Contact US</a>
+                                <NavLink to="/land">
+                                    Land
+                                </NavLink>
                             </li>
                         </ul>
                     </div>

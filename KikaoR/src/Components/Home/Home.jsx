@@ -5,13 +5,6 @@ import './Home.css'
 
 function Home() {
   return (
-    // <div>
-    //   <div className="getstarted">
-    //             </div>
-    //             <div class="text-center">
-    //             <img src="Images/logo.png" alt ="" img-fluid/>
-    //             </div>
-    //         </div>
     <div className='container-fluid'>
       <div className="row">
         <div className='col-md-6 d-flex align-items-center justify-content-center'>
@@ -37,6 +30,6 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;
 
 

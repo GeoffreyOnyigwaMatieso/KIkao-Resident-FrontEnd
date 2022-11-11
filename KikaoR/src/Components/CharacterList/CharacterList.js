@@ -1,5 +1,5 @@
 import React from 'react'
-import  Character from '../Characters/Character'
+import  Character from '../Land/Land'
 
 // This component Displays the Lands in form of a list 
 

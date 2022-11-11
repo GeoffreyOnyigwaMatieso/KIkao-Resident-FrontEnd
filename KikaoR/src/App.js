@@ -1,20 +1,22 @@
 import React  from 'react'
 // import { Route, Routes } from 'react-router-dom';
-import { Switch, Route } from "react-router-dom";
-import AllCharacter from './Components/AllCharacterContainer/AllCharacter';
+import { Routes, Route } from "react-router-dom";
 import Home from './Components/Home/Home';
 import Card from './Components/Card/Card';
-import CharacterContainer from './Components/CharacterContainer/charactercontainer';
+import Land from './Components/Land/Land'
 import NavBar from './Components/NavBar/NavBar';
 
 function App() {
 
   return (
     <div className="App">
-      {/* <Home /> */}
-      {/* <AllCharacter /> */}
-      {/* <Card /> */}
+      
       <NavBar />
+      {/* <Routes> */}
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/data" element={<Card />} />
+        <Route exact path="/land" element={<Land />} />
+      {/* </Routes> */}
       {/* <Switch>
       <Route exact path="/">
         <Home />
