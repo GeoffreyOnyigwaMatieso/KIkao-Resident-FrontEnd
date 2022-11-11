@@ -58,6 +58,7 @@ import { Box, Button } from '@mui/material';
 function Card(){
     
     const [employers, setEmployers] = useState([]) 
+    const [employees, setEmployees] = useState([]) 
     // const navigate = useNavigate();
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -86,66 +87,138 @@ function Card(){
         .then(data => setEmployers(data))
     }, [])
 
+    useEffect(()=>{
+        fetch("http://localhost:9292/employees")
+        .then(r => r.json())
+        .then(data => setEmployees(data))
+    }, [])
+
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-          <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Employers_id</StyledTableCell>
-            <StyledTableCell align="right">Occupation</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {employers.map((employer) => (
-            <StyledTableRow 
-            key={employer.id}
-            // onClick={() => navigate(`/students/${student.id}`)}
-            style={{cursor: "pointer"}}
-            >
-              <StyledTableCell align="left">{employer.id}</StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {employer.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{employer.employers_id}</StyledTableCell>
-              <StyledTableCell align="right">{employer.occupation}</StyledTableCell>
-              {/* <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-                onClick={() => navigate(`/students/${student.id}`)}
-              >
-                <Button 
-                variant="outlined" 
-                
-                >
-                  EDIT
-                </Button>
-              </Box> */}
-              {/* <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-              >
-                <Button 
-                variant="contained" 
-                color="error"
-                onClick={() => {
-                  deleteStudent(student.id);
-                }}
-                >
-                  Delete
-                </Button>
-              </Box> */}
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+        <div>
+            <h1 className='text-center'>Employers Table</h1>
+            <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                <TableRow>
+                <StyledTableCell>Id</StyledTableCell>
+                    <StyledTableCell>Name</StyledTableCell>
+                    <StyledTableCell align="right">Employers_id</StyledTableCell>
+                    <StyledTableCell align="right">Occupation</StyledTableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                {employers.map((employer) => (
+                    <StyledTableRow 
+                    key={employer.id}
+                    // onClick={() => navigate(`/students/${student.id}`)}
+                    style={{cursor: "pointer"}}
+                    >
+                    <StyledTableCell align="left">{employer.id}</StyledTableCell>
+                    <StyledTableCell component="th" scope="row">
+                        {employer.name}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{employer.employers_id}</StyledTableCell>
+                    <StyledTableCell align="right">{employer.occupation}</StyledTableCell>
+                    {/* <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                        onClick={() => navigate(`/students/${student.id}`)}
+                    >
+                        <Button 
+                        variant="outlined" 
+                        
+                        >
+                        EDIT
+                        </Button>
+                    </Box> */}
+                    {/* <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                    >
+                        <Button 
+                        variant="contained" 
+                        color="error"
+                        onClick={() => {
+                        deleteStudent(student.id);
+                        }}
+                        >
+                        Delete
+                        </Button>
+                    </Box> */}
+                    </StyledTableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </TableContainer>
+        </div>
+        <div>
+            <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                <TableRow>
+                <StyledTableCell>Id</StyledTableCell>
+                    <StyledTableCell>Name</StyledTableCell>
+                    <StyledTableCell align="right">Employers_id</StyledTableCell>
+                    <StyledTableCell align="right">Occupation</StyledTableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                {employees.map((employee) => (
+                    <StyledTableRow 
+                    key={employee.id}
+                    // onClick={() => navigate(`/students/${student.id}`)}
+                    style={{cursor: "pointer"}}
+                    >
+                    <StyledTableCell align="left">{employee.id}</StyledTableCell>
+                    <StyledTableCell component="th" scope="row">
+                        {employee.name}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{employee.employee_id}</StyledTableCell>
+                    <StyledTableCell align="right">{employee.occupation}</StyledTableCell>
+                    {/* <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                        onClick={() => navigate(`/students/${student.id}`)}
+                    >
+                        <Button 
+                        variant="outlined" 
+                        
+                        >
+                        EDIT
+                        </Button>
+                    </Box> */}
+                    {/* <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                    >
+                        <Button 
+                        variant="contained" 
+                        color="error"
+                        onClick={() => {
+                        deleteStudent(student.id);
+                        }}
+                        >
+                        Delete
+                        </Button>
+                    </Box> */}
+                    </StyledTableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </TableContainer>
+        </div>
+
+    </>
   );
 }
 
