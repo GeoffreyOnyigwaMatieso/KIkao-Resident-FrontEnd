@@ -39,8 +39,6 @@
 
 // export default NavBar
 
-
-import { Link } from "react-router-dom"
 import { useState } from "react";
 
 export default function NavBar() {
@@ -48,10 +46,10 @@ export default function NavBar() {
 
     return (
         <nav className="w-full bg-white shadow">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+            <div className="justify-between px-1 mx-auto lg:max-w-7xl md:items-center md:flex md:px-5">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                          <h2 className="text-2xl font-bold">KIKAO RESIDENT SYSTEM</h2>
+                        <h2 className="text-2xl font-bold">KIKAO RESIDENTS</h2>
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -96,31 +94,18 @@ export default function NavBar() {
                             navbar ? "block" : "hidden"
                         }`}
                     >
-                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 my-6">
-                            <li className="text-gray-600">
-                            <Link 
-                              class="nav-link active"
-                              to="/"
-                              exact
-                            >
-                              Home
-                            </Link>
+                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                            <li className="text-gray-600 hover:text-blue-600">
+                                <a href="javascript:void(0)">Home</a>
                             </li>
-                            <li className="text-gray-600">
-                            <Link
-                              to="/allcharacter"
-                              exact
-                            >
-                              LandList 
-                            </Link>
+                            <li className="text-gray-600 hover:text-blue-600">
+                                <a href="javascript:void(0)">Blog</a>
                             </li>
-                            <li className="text-gray-600">
-                            <Link
-                              to="/characterhint"
-                              exact
-                            >
-                              Available Data 
-                            </Link>
+                            <li className="text-gray-600 hover:text-blue-600">
+                                <a href="javascript:void(0)">About US</a>
+                            </li>
+                            <li className="text-gray-600 hover:text-blue-600">
+                                <a href="javascript:void(0)">Contact US</a>
                             </li>
                         </ul>
                     </div>

@@ -13,9 +13,9 @@ function App() {
     <div className="App">
       {/* <Home /> */}
       {/* <AllCharacter /> */}
-      <Card />
-      {/* <NavBar />
-      <Switch>
+      {/* <Card /> */}
+      <NavBar />
+      {/* <Switch>
       <Route exact path="/">
         <Home />
       </Route>

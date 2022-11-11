@@ -1,47 +1,3 @@
-// import React, { useEffect } from 'react'
-
-// function Card(){
-//     // useEffect(()=>{
-//     //     fetch()
-//     //     .then(r => r.json())
-//     //     .then((data)=> console.log(data))
-//     // }, [])
-
-//     return(
-//         <>
-//             <table class="table-fixed">
-//   <thead>
-//     <tr>
-//       <th>Song</th>
-//       <th>Artist</th>
-//       <th>Year</th>
-//     </tr>
-//   </thead>
-//   <tbody>
-//     <tr>
-//       <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-//       <td>Malcolm Lockyer</td>
-//       <td>1961</td>
-//     </tr>
-//     <tr>
-//       <td>Witchy Woman</td>
-//       <td>The Eagles</td>
-//       <td>1972</td>
-//     </tr>
-//     <tr>
-//       <td>Shining Star</td>
-//       <td>Earth, Wind, and Fire</td>
-//       <td>1975</td>
-//     </tr>
-//   </tbody>
-// </table>
-//         </>
-//     )
-// }
-
-// export default Card;
-
-
 import * as React from 'react';
 import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
@@ -59,6 +15,7 @@ function Card(){
     
     const [employers, setEmployers] = useState([]) 
     const [employees, setEmployees] = useState([]) 
+    const [residents, setResidents] = useState([])
     // const navigate = useNavigate();
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -93,6 +50,11 @@ function Card(){
         .then(data => setEmployees(data))
     }, [])
 
+    useEffect(()=>{
+        fetch("http://localhost:9292/residents")
+        .then(r => r.json())
+        .then(data => setResidents(data))
+    }, [])
 
   return (
     <>
@@ -158,13 +120,14 @@ function Card(){
             </TableContainer>
         </div>
         <div>
+            <h1 className='text-center'>Employees Table</h1>
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
                 <TableRow>
                 <StyledTableCell>Id</StyledTableCell>
                     <StyledTableCell>Name</StyledTableCell>
-                    <StyledTableCell align="right">Employers_id</StyledTableCell>
+                    <StyledTableCell align="right">Employees_id</StyledTableCell>
                     <StyledTableCell align="right">Occupation</StyledTableCell>
                 </TableRow>
                 </TableHead>
@@ -181,6 +144,67 @@ function Card(){
                     </StyledTableCell>
                     <StyledTableCell align="right">{employee.employee_id}</StyledTableCell>
                     <StyledTableCell align="right">{employee.occupation}</StyledTableCell>
+                    {/* <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                        onClick={() => navigate(`/students/${student.id}`)}
+                    >
+                        <Button 
+                        variant="outlined" 
+                        
+                        >
+                        EDIT
+                        </Button>
+                    </Box> */}
+                    {/* <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                    >
+                        <Button 
+                        variant="contained" 
+                        color="error"
+                        onClick={() => {
+                        deleteStudent(student.id);
+                        }}
+                        >
+                        Delete
+                        </Button>
+                    </Box> */}
+                    </StyledTableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </TableContainer>
+        </div>
+        <div>
+            <h1 className='text-center'>Residents Table</h1>
+            <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                <TableRow>
+                <StyledTableCell>Id</StyledTableCell>
+                    <StyledTableCell>Name</StyledTableCell>
+                    <StyledTableCell align="right">Residents_id</StyledTableCell>
+                    <StyledTableCell align="right">Occupation</StyledTableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                {residents.map((resident) => (
+                    <StyledTableRow 
+                    key={resident.id}
+                    // onClick={() => navigate(`/students/${student.id}`)}
+                    style={{cursor: "pointer"}}
+                    >
+                    <StyledTableCell align="left">{resident.id}</StyledTableCell>
+                    <StyledTableCell component="th" scope="row">
+                        {resident.name}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{resident.resident_id}</StyledTableCell>
+                    <StyledTableCell align="right">{resident.occupation}</StyledTableCell>
                     {/* <Box
                         m={1}
                         display="flex"
