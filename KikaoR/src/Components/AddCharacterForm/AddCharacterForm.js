@@ -4,7 +4,7 @@ function AddCharacterForm({charaterForm}) {
     const [land, setLand] = useState("");
     const [location, setLocation] = useState("");
     const [size, setSize] = useState("");
-    // const [Firstseenin, setFirstseenin] = useState("")
+    
 
     function handleSubmit(e){
         // prevent form default
