@@ -1,54 +1,154 @@
-import React from 'react'
-import styles from './Card.module.scss'
+// import React, { useEffect } from 'react'
 
-export const Card = ({results}) => {
-    // console.log(results)
+// function Card(){
+//     // useEffect(()=>{
+//     //     fetch()
+//     //     .then(r => r.json())
+//     //     .then((data)=> console.log(data))
+//     // }, [])
 
-    // conditional rendering of the results 
-    let display;
-    if(results){
-        // using map function to automatically display our cards 
-        display = results.map(x=>{
-            // destructuring our x variable holder 
-            let {id, name,image,location, status } = x 
-            return(<div key={id} className='col-4 mb-4 position-relative' >
-                <div className= {styles.cards}>
-                    <img src={image} alt='' className= {`${styles.img} img-fluid}`} />
-                    <div style = {{ padding:"10px" }}className='content'>
-                        <div className='fs-4 fw-bold mb-4' >{name}</div>
-                        <div className=''>
-                            <div className='fs-6'>Last Location</div>
-                            <div className='fs-5'>{location.name}</div>
+//     return(
+//         <>
+//             <table class="table-fixed">
+//   <thead>
+//     <tr>
+//       <th>Song</th>
+//       <th>Artist</th>
+//       <th>Year</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     <tr>
+//       <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+//       <td>Malcolm Lockyer</td>
+//       <td>1961</td>
+//     </tr>
+//     <tr>
+//       <td>Witchy Woman</td>
+//       <td>The Eagles</td>
+//       <td>1972</td>
+//     </tr>
+//     <tr>
+//       <td>Shining Star</td>
+//       <td>Earth, Wind, and Fire</td>
+//       <td>1975</td>
+//     </tr>
+//   </tbody>
+// </table>
+//         </>
+//     )
+// }
 
-                        </div>
-                    </div>
-                </div>
-                
-                {(()=>{
-                    // display status based on condition
-                    if(status === 'Dead'){
-                        return(
-                            <div className={`${styles.badge} position-absolute badge bg-danger`} >{status}</div>
-                        )
-                    }
-                    else if(status === 'Alive'){
-                        return(
-                            <div className={`${styles.badge} position-absolute badge bg-success`} >{status}</div>
-                        )
-                    }
-                    else{
-                        return(
-                            <div className={`${styles.badge} position-absolute badge bg-secondary`} >{status}</div>
-                        )
-                    }
-                })()}
-                
-                </div>)
-        })
-    } else{
-     display =  "No Characters Found"
-    }
+// export default Card;
+
+
+import * as React from 'react';
+import { useEffect, useState } from 'react'
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+// import { useNavigate } from 'react-router-dom';
+import { Box, Button } from '@mui/material';
+
+function Card(){
+    
+    const [employers, setEmployers] = useState([]) 
+    // const navigate = useNavigate();
+
+    const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.common.black,
+        color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+    }));
+
+    const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+        border: 0,
+    },
+    }));
+    
+    useEffect(()=>{
+        fetch("http://localhost:9292/employers")
+        .then(r => r.json())
+        .then(data => setEmployers(data))
+    }, [])
+
+
   return (
-    <div>{display}</div>
-  )
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+          <StyledTableCell>Id</StyledTableCell>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Employers_id</StyledTableCell>
+            <StyledTableCell align="right">Occupation</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {employers.map((employer) => (
+            <StyledTableRow 
+            key={employer.id}
+            // onClick={() => navigate(`/students/${student.id}`)}
+            style={{cursor: "pointer"}}
+            >
+              <StyledTableCell align="left">{employer.id}</StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {employer.name}
+              </StyledTableCell>
+              <StyledTableCell align="right">{employer.employers_id}</StyledTableCell>
+              <StyledTableCell align="right">{employer.occupation}</StyledTableCell>
+              {/* <Box
+                m={1}
+                display="flex"
+                justifyContent="flex-end"
+                alignItems="flex-end"
+                onClick={() => navigate(`/students/${student.id}`)}
+              >
+                <Button 
+                variant="outlined" 
+                
+                >
+                  EDIT
+                </Button>
+              </Box> */}
+              {/* <Box
+                m={1}
+                display="flex"
+                justifyContent="flex-end"
+                alignItems="flex-end"
+              >
+                <Button 
+                variant="contained" 
+                color="error"
+                onClick={() => {
+                  deleteStudent(student.id);
+                }}
+                >
+                  Delete
+                </Button>
+              </Box> */}
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }
+
+
+
+export default Card
