@@ -23,14 +23,14 @@ function NavBar() {
         to="/allcharacter"
         exact
       >
-        CharacterList 
+        LandList 
       </NavLink>
 
       <NavLink
         to="/characterhint"
         exact
       >
-        Character Hint 
+        Available Data 
       </NavLink>
       </div>
       </nav>
