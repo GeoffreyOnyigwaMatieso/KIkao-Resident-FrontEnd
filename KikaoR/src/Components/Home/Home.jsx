@@ -13,8 +13,9 @@ function Home() {
         <div className='col-md-6'>
                 <h1 className="ubuntu my-4">Kikao <span className="text-primary">Residents</span> </h1>
                     <span style={{color:'White'}}>
-                    <p class="fs-6 text-dark fw-bold font-monospace" > Rick and Morty is an American adult animated science <br />fiction sitcom created by Justin Roiland and Dan 
-                     <br />Harmon for Cartoon Network's late night programming block Adult swim </p>
+                    <p class="fs-6 text-dark fw-bold font-monospace" > Kikao is a Resident Database for populating Resident, Employees, Employers and Land Data.
+                    This Data shows the Workers, residents, business people and land owners. from the backend.
+                     </p>
                     </span>
         </div>
 

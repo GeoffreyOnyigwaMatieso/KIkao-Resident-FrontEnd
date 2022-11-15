@@ -13,7 +13,6 @@
     "bootstrap": "^5.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.2",
     "react-paginate": "^8.1.3",
     "react-scripts": "4.0.3",
     "semantic-ui-css": "^2.2.10",
@@ -21,7 +20,7 @@
   },
   "devDependencies": {
     "json-server": "^0.4.2",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.4.3",
     "sass": "^1.55.0"
   },
   "scripts": {

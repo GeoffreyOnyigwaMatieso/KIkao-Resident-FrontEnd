@@ -102,8 +102,8 @@ export default function NavBar() {
                                 </NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                               <NavLink to="/data">
-                                    Data
+                               <NavLink to="/card">
+                                    Card
                                 </NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">

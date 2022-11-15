@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import CharacterContainer from "../CharacterContainer/charactercontainer";
 
 function AddCharacterForm({charaterForm}) {
     const [land, setLand] = useState("");
@@ -32,7 +33,7 @@ function AddCharacterForm({charaterForm}) {
 
   return (
     <div className="ui segment fs-4 fw-bold mb-4">
-    <form className="ui form" onSubmit = {handleSubmit}>
+    {/* <form className="ui form" onSubmit = {handleSubmit}>
       <div className="inline fields">
         <input type="text" name="name" placeholder="Land" value = {land} onChange ={(e) =>setLand(e.target.value)}/>
         <input type="text" name="status" placeholder="Locations" value = {location} onChange={(e)=>setLocation(e.target.value)} />
@@ -41,7 +42,8 @@ function AddCharacterForm({charaterForm}) {
       <button type = "submit" className="ui button">
         Add Land
       </button>
-    </form>
+    </form> */}
+    <CharacterContainer />
   </div>
   )
 }
